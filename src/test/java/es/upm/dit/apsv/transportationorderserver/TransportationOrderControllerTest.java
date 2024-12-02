@@ -76,7 +76,12 @@ public class TransportationOrderControllerTest {
                 .andExpect(jsonPath("$", hasSize(20)))
 
                 .andReturn();
+    }
     
+    @Test
+
+    public void testGetOrder() throws Exception {
+      
         //call GET "/transportationorders/{truck}"  application/json
         
         when(repository.findById("8962ZKR")).thenReturn(Optional.of(new TransportationOrder("28",
@@ -94,7 +99,7 @@ public class TransportationOrderControllerTest {
             .andExpect(jsonPath("$.truck").value("8962ZKR"))
             .andExpect(jsonPath("$.originDate").value(1591682400000L))
             .andReturn();
-  }
+    }
 
 
     private List<TransportationOrder> getAllTestOrders(){
@@ -131,5 +136,5 @@ public class TransportationOrderControllerTest {
          return orders;
 
        }
-
+       
 }
